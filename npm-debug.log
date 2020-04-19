@@ -1,0 +1,50 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'cache', 'clean', '-f' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 warn using --force I sure hope you know what you are doing.
+5 silly ls normalized .
+6 silly gentlyRm /home/navneet/.npm/_cacache is being purged
+7 verbose gentlyRm don't care about contents; nuking /home/navneet/.npm/_cacache
+8 silly gentlyRm /home/navneet/.npm/_locks is being purged
+9 verbose gentlyRm don't care about contents; nuking /home/navneet/.npm/_locks
+10 silly gentlyRm /home/navneet/.npm/_logs is being purged
+11 verbose gentlyRm don't care about contents; nuking /home/navneet/.npm/_logs
+12 silly gentlyRm /home/navneet/.npm/anonymous-cli-metrics.json is being purged
+13 verbose gentlyRm don't care about contents; nuking /home/navneet/.npm/anonymous-cli-metrics.json
+14 silly gentlyRm /home/navneet/.npm/n is being purged
+15 verbose gentlyRm don't care about contents; nuking /home/navneet/.npm/n
+16 silly gentlyRm /home/navneet/.npm/npm is being purged
+17 verbose gentlyRm don't care about contents; nuking /home/navneet/.npm/npm
+18 silly gentlyRm /home/navneet/.npm/registry.npmjs.org is being purged
+19 verbose gentlyRm don't care about contents; nuking /home/navneet/.npm/registry.npmjs.org
+20 silly vacuum-fs purging /home/navneet/.npm/_cacache
+21 silly vacuum-fs purging /home/navneet/.npm/_locks
+22 silly vacuum-fs purging /home/navneet/.npm/_logs
+23 silly vacuum-fs purging /home/navneet/.npm/anonymous-cli-metrics.json
+24 silly vacuum-fs purging /home/navneet/.npm/n
+25 silly vacuum-fs purging /home/navneet/.npm/npm
+26 silly vacuum-fs purging /home/navneet/.npm/registry.npmjs.org
+27 silly vacuum-fs quitting because other entries in /home/navneet/.npm
+28 silly vacuum-fs quitting because other entries in /home/navneet/.npm
+29 silly vacuum-fs quitting because other entries in /home/navneet/.npm
+30 silly vacuum-fs quitting because other entries in /home/navneet/.npm
+31 silly vacuum-fs quitting because other entries in /home/navneet/.npm
+32 verbose stack Error: EACCES: permission denied, rmdir '/home/navneet/.npm/_cacache/content-v2'
+33 verbose cwd /media/navneet/72f83045-b7eb-4237-a111-1f6156ea4496/mongodbAPI
+34 error Linux 5.3.0-42-generic
+35 error argv "/usr/bin/node" "/usr/bin/npm" "cache" "clean" "-f"
+36 error node v8.10.0
+37 error npm  v3.5.2
+38 error path /home/navneet/.npm/_cacache/content-v2
+39 error code EACCES
+40 error errno -13
+41 error syscall rmdir
+42 error Error: EACCES: permission denied, rmdir '/home/navneet/.npm/_cacache/content-v2'
+42 error  { Error: EACCES: permission denied, rmdir '/home/navneet/.npm/_cacache/content-v2'
+42 error   errno: -13,
+42 error   code: 'EACCES',
+42 error   syscall: 'rmdir',
+42 error   path: '/home/navneet/.npm/_cacache/content-v2' }
+43 error Please try running this command again as root/Administrator.
+44 verbose exit [ -13, true ]
