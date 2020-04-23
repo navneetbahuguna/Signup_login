@@ -14,12 +14,13 @@ router.use(express.json())
 require("../model/Post")
 const Post = mongoose.model("signup")
 router.use(bodyparser.json())
+router.use(bodyparser.urlencoded({ extended: true}));
+
 router.use(morgan())
 var fs = require('fs');
 
 //router.set('view engine', 'ejs');
 router.use('/public', express.static(__dirname + '/public'));
- router.use(bodyparser.urlencoded({ extended: true}));
 console.log("data start")
 
 // router.get("/",function(req,res){
@@ -115,7 +116,11 @@ var getHash = ( pass , phone ) => {
      console.log("hmac : " + gen_hmac);
      return gen_hmac;
 }
-router.post("/sign_up", async (req, res, next) =>{
+router.get('/signup', function(req, res) {
+     res.sendFile(path.join(__dirname,'../', 'view','index.html'))
+
+});
+     router.post("/signup", async (req, res, next) =>{
 
      console.log('request data ->', req.body)
     try{
@@ -132,26 +137,26 @@ router.post("/sign_up", async (req, res, next) =>{
     console.log("1")
     console.log("2")
     console.log(req.url)
-     if (req.url ==="/sign_up"){
+     // if (req.url ==="/sign_up"){
          
-          fs.readFile( path.join( __dirname,'..'+"/"+"view/signup_success.html"), function (error, pgResp) {
-               if (error) {
-                    throw error
-                    res.writeHead(404);
-                    res.write('Contents you are looking are Not Found');
-               } else {
-                    console.log("read_file")
-                    res.setHeader('Content-Type', 'text/html');
+     //      fs.readFile( path.join( __dirname,'..'+"/"+"view/signup_success.html"), function (error, pgResp) {
+     //           if (error) {
+     //                throw error
+     //                res.writeHead(404);
+     //                res.write('Contents you are looking are Not Found');
+     //           } else {
+     //                console.log("read_file")
+     //                res.setHeader('Content-Type', 'text/html');
 
-                    //res.writeHead(200, { 'Content-Type': 'text/html' });
-                    res.write(pgResp);
-                    res.end();
-                    //next();
+     //                //res.writeHead(200, { 'Content-Type': 'text/html' });
+     //                res.write(pgResp);
+     //                res.end();
+     //                //next();
 
-               }
+     //           }
                
-               })
-     }
+     //           })
+     // }
     posts.save((err, result) =>{
          if (err){
               return res.status(400).json({
@@ -162,7 +167,7 @@ router.post("/sign_up", async (req, res, next) =>{
               post: result  //showing in postman (response) and save in database
          })
     }); 
-    
+    res.sendFile(path.join(__dirname, '../', 'view', 'signup_success.html'))
      console.log("3")
     }catch(error){
          console.log("error in post ")

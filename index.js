@@ -12,23 +12,30 @@ var port = process.env.PORT || 4005;
 
 
 app.get('/', function(req, res) {
-     res.set({ 
-          'Access-control-Allow-Origin': '*'
-          }); 
-     console.log(path.join(__dirname, '../'))
-     res.sendFile( __dirname + "/" +'view/index.html');
+     res.sendFile(path.join(__dirname, 'view','index.html'))
+     // res.set({ 
+     //      'Access-control-Allow-Origin': '*'
+     //      }); 
+     // console.log(path.join(__dirname, '../'))
+     // res.sendFile( __dirname + "/" +'view/index.html');
  });
  
 app.use("/NBProject", require("./routes/posts"))
 
-//Routes not found
+//Routes not found  1st method
+// app.use((req, res, next) =>{
+//      req.status = 404;
+//      const error =  new error("Rooutes not found")
+//      next(error);
+// })
+//another Method 
 app.use((req, res, next) =>{
-     req.status = 404;
-     const error =  new error("Rooutes not found")
-     next(error);
+     console.log("404 error")
+     res.status(404).sendFile(path.join(__dirname,'view','404.html'))
 })
 //error handler
 app.use((error, req, res, next) =>{
+     console.log("500 error")
      res.status(req.status || 500).send({
           message : error.message,
           stack: error.stack
